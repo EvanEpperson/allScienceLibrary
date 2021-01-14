@@ -5,10 +5,21 @@ class App extends React.Component {
     fiction: '',
     image:'',
     description:'',
-    isCheckedOut: false
+    isCheckedOut: false,
+    books:[]
   }
 
 
+  componentDidMount = () => {
+    axios
+      .get('/books')
+      .then((response) => {
+        this.setState({
+          books: response.data
+        })
+      })
+  }
+  
   render = () => {
     return (
       <div>
@@ -30,10 +41,11 @@ class App extends React.Component {
           <input type="text" id="description" onChange={this.handleChange} value={this.state.description}/>
           <br />
           <label htmlFor="isCheckedOut">Name</label>
-          <input type="hidden" id="isCheckedOut" onChange={this.handleChange} value=false/>
+          <input type="hidden" id="isCheckedOut" onChange={this.handleChange} value={false}/>
           <br />
           <input type="submit" value="Create Book" />
         </form>
+        <h2>
       </div>
     )
   }

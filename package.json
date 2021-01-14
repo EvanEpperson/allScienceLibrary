@@ -1,8 +1,9 @@
 {
   "name": "allScienceLibrary",
   "version": "1.0.0",
-  "engines":{
-    "node": "12.18.2"
+  "engines": {
+    "node": "12.18.2",
+    "npm": "7.0.8"
   },
   "description": "A basic library about science fiction and non fiction",
   "main": "server.js",

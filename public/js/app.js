@@ -9,6 +9,27 @@ class App extends React.Component {
     books:[]
   }
 
+  handleChange = (event) => {
+    this.setState({
+      [event.target.id]: event.target.value
+    })
+  }
+
+  handleSubmit = (event) => {
+    event.preventDefault()
+    axios
+    .post('/books', this.state)
+    .then((response) =>
+      this.setState({
+        books: response.data,
+        name: '',
+        fiction: '',
+        image: '',
+        description:'',
+        isCheckedOut: false,
+      })
+    )
+  }
 
   componentDidMount = () => {
     axios
@@ -19,7 +40,7 @@ class App extends React.Component {
         })
       })
   }
-  
+
   render = () => {
     return (
       <div>
@@ -45,7 +66,8 @@ class App extends React.Component {
           <br />
           <input type="submit" value="Create Book" />
         </form>
-        <h2>
+        <h2>These are the Books in the Library:</h2>
+        
       </div>
     )
   }

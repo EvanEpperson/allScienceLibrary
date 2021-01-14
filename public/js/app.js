@@ -81,7 +81,7 @@ updateBook = event => {
           <label htmlFor="author">Author</label>
           <input type="text" id="author" onChange={this.handleChange} value={this.state.author}/>
           <br />
-          <label htmlFor="fiction">fiction Type</label>
+          <label htmlFor="fiction">Fiction Type</label>
           <input type="text" id="fiction" onChange={this.handleChange} value={this.state.fiction}/>
           <br />
           <label htmlFor="image">Image</label>
@@ -90,7 +90,6 @@ updateBook = event => {
           <label htmlFor="description">Description</label>
           <input type="text" id="description" onChange={this.handleChange} value={this.state.description}/>
           <br />
-          <label htmlFor="isCheckedOut">Name</label>
           <input type="hidden" id="isCheckedOut" onChange={this.handleChange} value={false}/>
           <br />
           <input type="submit" value="Create Book" />
@@ -138,6 +137,7 @@ updateBook = event => {
                       id="image"
                       onChange={this.handleChange}
                     />
+                    <br />
                     <label htmlFor="description">Description</label>
                     <br />
                     <input
@@ -166,7 +166,7 @@ updateBook = event => {
                 </button>
               </li>
             )}
-          })
+          )}
         </ul>
       </div>
     )

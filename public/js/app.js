@@ -32,6 +32,18 @@ class App extends React.Component {
     )
   }
 
+  checkOutBook = event => {
+    this.setState({
+      isCheckedOut: true
+    })
+  }
+
+  checkInBook = event => {
+    this.setState({
+      isCheckedOut: false
+    })
+  }
+
   deleteBook = event => {
   axios
     .delete('/books/' + event.target.value)
@@ -42,23 +54,23 @@ class App extends React.Component {
     })
 }
 
-updateBook = event => {
-  event.preventDefault()
-  const id = event.target.id
-  axios
-   .put('/books/' + id, this.state)
-   .then(response => {
-      this.setState({
-        books: response.data,
-        name: '',
-        author: '',
-        fiction: '',
-        image: '',
-        description:'',
-        isCheckedOut: false,
+  updateBook = event => {
+    event.preventDefault()
+    const id = event.target.id
+    axios
+     .put('/books/' + id, this.state)
+     .then(response => {
+        this.setState({
+          books: response.data,
+          name: '',
+          author: '',
+          fiction: '',
+          image: '',
+          description:'',
+          isCheckedOut: false,
+        })
       })
-    })
-}
+  }
 
   componentDidMount = () => {
     axios
@@ -76,13 +88,13 @@ updateBook = event => {
         <h2>Add a Book to the Library</h2>
         <form onSubmit={this.handleSubmit}>
           <label htmlFor="name">Name</label>
-          <input type="text" id="name" onChange={this.handleChange} value={this.state.name}/>
+          <input type="text" id="name" onChange={this.handleChange} value={this.state.name} required/>
           <br />
           <label htmlFor="author">Author</label>
-          <input type="text" id="author" onChange={this.handleChange} value={this.state.author}/>
+          <input type="text" id="author" onChange={this.handleChange} value={this.state.author} required/>
           <br />
           <label htmlFor="fiction">Fiction Type</label>
-          <input type="text" id="fiction" onChange={this.handleChange} value={this.state.fiction}/>
+          <input type="text" id="fiction" onChange={this.handleChange} value={this.state.fiction} required/>
           <br />
           <label htmlFor="image">Image</label>
           <input type="text" id="image" onChange={this.handleChange} value={this.state.image}/>
@@ -157,7 +169,12 @@ updateBook = event => {
                 <button className="deleteButton" value={book._id} onClick={this.deleteBook}>
                   DELETE
                 </button>
-                <button className="checkoutButton">Check Out This Book</button>
+                {this.state.isCheckedOut === false &&
+                <button className="checkOutButton" value={book._id} onClick={this.checkOutBook}>Check Out This Book</button>
+                }
+                {this.state.isCheckedOut === true &&
+                <button className="checkInButton" value={book._id} onClick={this.checkInBook}>Check In This Book</button>
+                }
               </li>
             );}
           )}

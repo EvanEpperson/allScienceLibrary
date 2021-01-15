@@ -1,0 +1,12 @@
+li{
+    list-style-type: none;
+}
+
+.main,
+.container{
+	width: 90%;
+	max-width: 1060px;
+	margin: 0 auto;
+	position: relative;
+	padding: 0 30px 50px 30px;
+}

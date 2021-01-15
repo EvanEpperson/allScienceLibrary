@@ -72,7 +72,7 @@ updateBook = event => {
 
   render = () => {
     return (
-      <div>
+      <div className="main">
         <h2>Add a Book to the Library</h2>
         <form onSubmit={this.handleSubmit}>
           <label htmlFor="name">Name</label>
@@ -98,21 +98,17 @@ updateBook = event => {
         <ul>
           {this.state.books.map((book) => {
             return (
-              <li key={book.id}>
-                {book.name} <br/>
-                {book.author} <br/>
-                {book.fiction} <br/>
-                {book.description} <br/>
-                <details>
-                  <summary>Edit this Book</summary>
-                    <form id={book._id} onSubmit={this.updateBook}>
+              <li key={book.id} className="mapLi">
+                <p className="mapPName"> {book.name}</p> <br />
+                <p className="mapPName"> {book.author}</p> <br />
+                <p className="mapPName"> {book.fiction}</p> <br />
+                <p className="mapPName">{book.description}</p> <br />
+                <details className="mapDetails">
+                  <summary className="mapSummary">Edit this Book</summary>
+                  <form id={book._id} onSubmit={this.updateBook}>
                     <label htmlFor="name">Name</label>
                     <br />
-                    <input
-                      type="text"
-                      id="name"
-                      onChange={this.handleChange}
-                    />
+                    <input type="text" id="name" onChange={this.handleChange} />
                     <br />
                     <label htmlFor="author">Author</label>
                     <br />
@@ -154,18 +150,16 @@ updateBook = event => {
                     />
                     <br />
                     <br />
-                    <input type="submit" value="Update Book" />
+                    <input className="inputEditButton" type="submit" value="Update Book" />
                   </form>
                 </details>
                 <img src={book.image} alt={book.name} />
-                <button value={book._id} onClick={this.deleteBook}>
+                <button className="deleteButton" value={book._id} onClick={this.deleteBook}>
                   DELETE
                 </button>
-                <button >
-                  Check Out This Book
-                </button>
+                <button className="checkoutButton">Check Out This Book</button>
               </li>
-            )}
+            );}
           )}
         </ul>
       </div>

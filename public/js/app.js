@@ -1,3 +1,5 @@
+
+
 class App extends React.Component {
   state = {
     name: '',
@@ -107,78 +109,7 @@ class App extends React.Component {
           <input type="submit" value="Create Book" />
         </form>
         <h2>These are the Books in the Library:</h2>
-        <ul>
-          {this.state.books.map((book) => {
-            return (
-              <li key={book.id} className="mapLi">
-                <p className="mapPName"> {book.name}</p> <br />
-                <p className="mapPName"> {book.author}</p> <br />
-                <p className="mapPName"> {book.fiction}</p> <br />
-                <p className="mapPName">{book.description}</p> <br />
-                <details className="mapDetails">
-                  <summary className="mapSummary">Edit this Book</summary>
-                  <form id={book._id} onSubmit={this.updateBook}>
-                    <label htmlFor="name">Name</label>
-                    <br />
-                    <input type="text" id="name" onChange={this.handleChange} />
-                    <br />
-                    <label htmlFor="author">Author</label>
-                    <br />
-                    <input
-                      type="text"
-                      id="author"
-                      onChange={this.handleChange}
-                    />
-                    <br />
-                    <label htmlFor="fiction">Fiction Type</label>
-                    <br />
-                    <input
-                      type="text"
-                      id="fiction"
-                      onChange={this.handleChange}
-                    />
-                    <br />
-                    <label htmlFor="image">Image</label>
-                    <br />
-                    <input
-                      type="text"
-                      id="image"
-                      onChange={this.handleChange}
-                    />
-                    <br />
-                    <label htmlFor="description">Description</label>
-                    <br />
-                    <input
-                      type="text"
-                      id="description"
-                      onChange={this.handleChange}
-                    />
-                    <br />
-                    <input
-                      type="hidden"
-                      id="isCheckedOut"
-                      onChange={this.handleChange}
-                      value={false}
-                    />
-                    <br />
-                    <br />
-                    <input className="inputEditButton" type="submit" value="Update Book" />
-                  </form>
-                </details>
-                <img src={book.image} alt={book.name} />
-                <button className="deleteButton" value={book._id} onClick={this.deleteBook}>
-                  DELETE
-                </button>
-                {this.state.isCheckedOut === false &&
-                <button className="checkOutButton" value={book._id} onClick={this.checkOutBook}>Check Out This Book</button>
-                }
-                {this.state.isCheckedOut === true &&
-                <button className="checkInButton" value={book._id} onClick={this.checkInBook}>Check In This Book</button>
-                }
-              </li>
-            );}
-          )}
-        </ul>
+        <Book name={this.state.name} author={this.state.author} fiction={this.state.fiction} image={this.state.image} description={this.state.description} books={this.state.books}></Book>
       </div>
     )
   }

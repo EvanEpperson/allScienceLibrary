@@ -87,7 +87,7 @@ class App extends React.Component {
   render = () => {
     return (
       <div className="main">
-        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <div className="d-grid gap-2 d-md-flex justify-content-md-end">
           <button className="btn btn-outline-info create-button " type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
           Add a New Book
           </button>

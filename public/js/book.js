@@ -120,7 +120,7 @@ class Book extends React.Component {
         var $navPrev = $('<span class="bk-page-prev">&lt;</span>'),
           $navNext = $('<span class="bk-page-next">&gt;</span>');
 
-        $page.append($("<nav></nav>").append($navPrev, $navNext));
+        // $page.append($("<nav></nav>").append($navPrev, $navNext));
 
         $navPrev.on("click", function () {
           if (current > 0) {
@@ -186,6 +186,9 @@ class Book extends React.Component {
                     <p>{book.description}</p>
                   </div>
                 </div>
+
+
+                {/* inside of the book  */}
                 <div className="bk-back">
                   <p>{book.description}</p>
                 </div>
@@ -203,7 +206,7 @@ class Book extends React.Component {
                 <button className="bk-bookback" onClick={this.bookFlip}>
                   Flip
                 </button>
-                <button className="bk-bookview">View inside</button>
+                <button className="bk-bookview" onClick={this.bookFlip}>View inside</button>
                 <h3>
                   <span>Anthony Burghiss</span>
                   <span>A Catwork Orange</span>

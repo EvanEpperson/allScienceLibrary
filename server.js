@@ -8,6 +8,7 @@ const MONGODB_URI = process.env.MONGODB_URI
 
 app.use(express.json())
 app.use(express.static('public'))
+app.use("/jquery", express.static(__dirname + "/node_modules/jquery/dist/"));
 
 
 

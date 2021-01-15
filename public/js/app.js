@@ -94,14 +94,23 @@ class App extends React.Component {
           <div className="collapse" id="collapseExample">
             <div className="card card-body create-form-card" >
               <form onSubmit={this.handleSubmit}>
-                <label htmlFor="name">Name        </label>
-                <input type="text" id="name" onChange={this.handleChange} value={this.state.name} required/>
-                <br />
+                <div class="form-floating mb-3">
+                  <label htmlFor="name">Name</label>
+                  <input type="text" id="name" className="form-control" onChange={this.handleChange} value={this.state.name} required/>
+                  <br />
+                </div>
                 <label htmlFor="author">Author</label>
                 <input type="text" id="author" onChange={this.handleChange} value={this.state.author} required/>
                 <br />
-                <label htmlFor="fiction">Fiction Type</label>
-                <input type="text" id="fiction" onChange={this.handleChange} value={this.state.fiction} required/>
+                <div className="form-floating">
+                  <select className="form-select" id="fiction" aria-label="Floating label select " onChange={this.handleChange} value={this.state.fiction} required>
+                    <option selected></option>
+                    <option value="Fiction">Fiction</option>
+                    <option value="Non-Fiction">Non-Fiction</option>
+                  </select>
+                  <label htmlFor="fiction">Fiction Type</label>
+                  {/*<input type="text" id="fiction" onChange={this.handleChange} value={this.state.fiction} required/>*/}
+                </div>
                 <br />
                 <label htmlFor="image">Image</label>
                 <input type="text" id="image" onChange={this.handleChange} value={this.state.image}/>

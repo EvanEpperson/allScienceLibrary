@@ -87,27 +87,38 @@ class App extends React.Component {
   render = () => {
     return (
       <div className="main">
-        <h2>Add a Book to the Library</h2>
-        <form onSubmit={this.handleSubmit}>
-          <label htmlFor="name">Name</label>
-          <input type="text" id="name" onChange={this.handleChange} value={this.state.name} required/>
-          <br />
-          <label htmlFor="author">Author</label>
-          <input type="text" id="author" onChange={this.handleChange} value={this.state.author} required/>
-          <br />
-          <label htmlFor="fiction">Fiction Type</label>
-          <input type="text" id="fiction" onChange={this.handleChange} value={this.state.fiction} required/>
-          <br />
-          <label htmlFor="image">Image</label>
-          <input type="text" id="image" onChange={this.handleChange} value={this.state.image}/>
-          <br />
-          <label htmlFor="description">Description</label>
-          <input type="text" id="description" onChange={this.handleChange} value={this.state.description}/>
-          <br />
-          <input type="hidden" id="isCheckedOut" onChange={this.handleChange} value={false}/>
-          <br />
-          <input type="submit" value="Create Book" />
-        </form>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+          <button className="btn btn-outline-info create-button " type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+          Add a New Book
+          </button>
+          <div className="collapse" id="collapseExample">
+            <div className="card card-body create-form-card" >
+              <form onSubmit={this.handleSubmit}>
+                <label htmlFor="name">Name        </label>
+                <input type="text" id="name" onChange={this.handleChange} value={this.state.name} required/>
+                <br />
+                <label htmlFor="author">Author</label>
+                <input type="text" id="author" onChange={this.handleChange} value={this.state.author} required/>
+                <br />
+                <div className="form-floating>"
+                  <label htmlFor="fiction">Fiction Type</label>
+                  <input type="text" id="fiction" onChange={this.handleChange} value={this.state.fiction} required/>
+                  <br />
+                </div>
+                <label htmlFor="image">Image</label>
+                <input type="text" id="image" onChange={this.handleChange} value={this.state.image}/>
+                <br />
+                <label htmlFor="description">Description</label>
+                <textarea id="description" onChange={this.handleChange} value={this.state.description}>
+                </textarea>
+                <br />
+                <input type="hidden" id="isCheckedOut" onChange={this.handleChange} value={false}/>
+                <br />
+                <input type="submit" value="Create Book" />
+              </form>
+            </div>
+          </div>
+        </div>
         <h2>These are the Books in the Library:</h2>
         <Book name={this.state.name} author={this.state.author} fiction={this.state.fiction} image={this.state.image} description={this.state.description} books={this.state.books}></Book>
       </div>

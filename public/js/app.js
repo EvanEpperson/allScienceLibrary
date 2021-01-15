@@ -100,11 +100,9 @@ class App extends React.Component {
                 <label htmlFor="author">Author</label>
                 <input type="text" id="author" onChange={this.handleChange} value={this.state.author} required/>
                 <br />
-                <div className="form-floating>"
-                  <label htmlFor="fiction">Fiction Type</label>
-                  <input type="text" id="fiction" onChange={this.handleChange} value={this.state.fiction} required/>
-                  <br />
-                </div>
+                <label htmlFor="fiction">Fiction Type</label>
+                <input type="text" id="fiction" onChange={this.handleChange} value={this.state.fiction} required/>
+                <br />
                 <label htmlFor="image">Image</label>
                 <input type="text" id="image" onChange={this.handleChange} value={this.state.image}/>
                 <br />

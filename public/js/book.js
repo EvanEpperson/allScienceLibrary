@@ -81,7 +81,7 @@ class Book extends React.Component {
         }
       });
 
-      $bookview.on("click", function () {
+      // $bookview.on("click", function () {
         var $this = $(this);
 
         $other

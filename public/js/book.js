@@ -81,7 +81,7 @@ class Book extends React.Component {
         }
       });
 
-      // $bookview.on("click", function () {
+      $bookview.on("click", function () {
         var $this = $(this);
 
         $other
@@ -167,17 +167,77 @@ class Book extends React.Component {
                   <div className="bk-cover-back"></div>
                   <div className="bk-cover">
                     {/* works but needs more work in css for it to match with every book  */}
-                    {/* <img src={book.image} alt={book.name} /> */}
+                    <img src={book.image} alt={book.name} />
                     <h2>
-                      <span>{book.author}</span>
-                      <span>{book.name}</span>
+                      <span></span>
+                      <span></span>
                     </h2>
                   </div>
                 </div>
                 {/* inside of the book maybe need to make another discription if we want to keep this feature */}
                 <div className="bk-page">
                   <div className="bk-content bk-content-current">
-                    <p>{book.description}</p>
+                    {/* <details className="mapDetails"> */}
+                    <summary className="mapSummary">Edit this Book</summary>
+                    <form id={book._id} onSubmit={this.updateBook}>
+                      <label htmlFor="name">Name</label>
+
+                      <input type="text" id="name" onChange={this.testing} />
+
+                      <label htmlFor="author">Author</label>
+
+                      <input
+                        type="text"
+                        id="author"
+                        onChange={this.handleChange}
+                      />
+
+                      <label htmlFor="fiction">Fiction Type</label>
+
+                      <input
+                        type="text"
+                        id="fiction"
+                        onChange={this.handleChange}
+                      />
+
+                      <label htmlFor="image">Image</label>
+
+                      <input
+                        type="text"
+                        id="image"
+                        onChange={this.handleChange}
+                      />
+
+                      <label htmlFor="description">Description</label>
+
+                      <input
+                        type="text"
+                        id="description"
+                        onChange={this.handleChange}
+                      />
+
+                      <input
+                        type="hidden"
+                        id="isCheckedOut"
+                        onChange={this.handleChange}
+                        value={false}
+                      />
+
+                      <input
+                        className="inputEditButton"
+                        type="submit"
+                        value="Update Book"
+                        
+                      />
+                    </form>
+                    <button
+                      className="deleteButton"
+                      value={book._id}
+                      onClick={this.deleteBook}
+                    >
+                      DELETE
+                    </button>
+                    {/* </details> */}
                   </div>
                   <div className="bk-content">
                     <p>{book.description}</p>
@@ -187,8 +247,7 @@ class Book extends React.Component {
                   </div>
                 </div>
 
-
-                {/* inside of the book  */}
+                {/* inside of the book */}
                 <div className="bk-back">
                   <p>{book.description}</p>
                 </div>
@@ -206,27 +265,14 @@ class Book extends React.Component {
                 <button className="bk-bookback" onClick={this.bookFlip}>
                   Flip
                 </button>
-                <button className="bk-bookview" onClick={this.bookFlip}>View inside</button>
+                <button className="bk-bookview" onClick={this.bookFlip}>
+                  View inside
+                </button>
                 <h3>
-                  <span>Anthony Burghiss</span>
-                  <span>A Catwork Orange</span>
+                  <span>{book.author}</span>
+                  <span>{book.name}</span>
                 </h3>
-                <p>
-                  Social prophecy? Black comedy? Study of freewill? A Clockwork
-                  Orange is all of these. It is also a dazzling experiment in
-                  language, as Burghiss creates a new language - 'meow', the cat
-                  slang of a not-too-distant future.
-                </p>
               </div>
-                {/* <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-		            <script src="newbook.js"></script>
-		            <script>
-			            $(function() {
-
-				              Books.init()
-
-			            });
-		            </script> */}
 
               {/* regular code that i may have to delete later on  */}
               {/* keeping this down  */}
@@ -284,15 +330,9 @@ class Book extends React.Component {
               <div className="bk-info">
                 <button className="bk-bookback">Flip</button>
                 <button className="bk-bookview">View inside</button>
-                {/* <h3>
-								<span>Anthony Burghiss</span>
-								<span>A Catwork Orange</span>
-							</h3>
-							<p>Social prophecy? Black comedy? Study of freewill? A Clockwork Orange is all of these. It is also a dazzling experiment in language, as Burghiss creates a new language - 'meow', the cat slang of a not-too-distant future.</p>
-						</div>  */}
               </div>
               {/* delete button  */}
-              {/* <button
+              <button
                 className="deleteButton"
                 value={book._id}
                 onClick={this.deleteBook}
@@ -316,7 +356,7 @@ class Book extends React.Component {
                 >
                   Check In This Book
                 </button>
-              )} */}
+              )}
             </li>
           );
         })}

@@ -1,0 +1,28 @@
+
+header {
+  background-size: cover;
+  box-shadow: 5px 5px 10px black, 13px 13px 10px indigo;
+}
+
+.app-name {
+  color:lightgrey;
+  font-size: 3.5em;
+}
+
+.create-form-card {
+  width: 300px;
+  text-align: center;
+}
+
+textarea {
+  resize: none;
+  height: 100px;
+  width: 250px;
+}
+
+.create-button {
+  margin: 20px 0;
+  box-shadow: 5px 5px 10px black, 13px 13px 10px aqua;
+
+}
+

@@ -56,96 +56,107 @@ class Book extends React.Component {
 
 
   bookFlip = function init() {
-    var $books = $("#bk-list > li > div.bk-book"),
-      booksCount = $books.length;
-    $books.each(function () {
-      var $book = $(this),
-        $other = $books.not($book),
+    var books = document.querySelector("#bk-list > li > div.bk-book"),
+    // var $books = $("#bk-list > li > div.bk-book"),
+      // booksCount = $books.length;
+      booksCount = books.length;
+    books.each(function () {
+      var book = this,
+        other = books.not(book),
         $parent = $book.parent(),
         $page = $book.children("div.bk-page"),
         $bookview = $parent.find("button.bk-bookview"),
         $content = $page.children("div.bk-content"),
         current = 0;
 
-      $parent.find("button.bk-bookback").on("click", function () {
-        $bookview.removeClass("bk-active");
+      
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+      /////////////////flip page function only  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-        if ($book.data("flip")) {
-          $book
-            .data({ opened: false, flip: false })
-            .removeClass("bk-viewback")
-            .addClass("bk-bookdefault");
-        } else {
-          $book
-            .data({ opened: false, flip: true })
-            .removeClass("bk-viewinside bk-bookdefault")
-            .addClass("bk-viewback");
-        }
-      });
+      
+      // $parent.find("button.bk-bookback").on("click", function () {
+      //   $bookview.removeClass("bk-active");
 
-      $bookview.on("click", function () {
-        var $this = $(this);
+      //   if ($book.data("flip")) {
+      //     $book
+      //       .data({ opened: false, flip: false })
+      //       .removeClass("bk-viewback")
+      //       .addClass("bk-bookdefault");
+      //   } else {
+      //     $book
+      //       .data({ opened: false, flip: true })
+      //       .removeClass("bk-viewinside bk-bookdefault")
+      //       .addClass("bk-viewback");
+      //   }
+      // });
+      /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+      /////////////////view inside function only //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+      // $bookview.on("click", function () {
+      //   var $this = $(this);
 
-        $other
-          .data("opened", false)
-          .removeClass("bk-viewinside")
-          .parent()
-          .css("z-index", 0)
-          .find("button.bk-bookview")
-          .removeClass("bk-active");
-        if (!$other.hasClass("bk-viewback")) {
-          $other.addClass("bk-bookdefault");
-        }
+      //   $other
+      //     .data("opened", false)
+      //     .removeClass("bk-viewinside")
+      //     .parent()
+      //     .css("z-index", 0)
+      //     .find("button.bk-bookview")
+      //     .removeClass("bk-active");
+      //   if (!$other.hasClass("bk-viewback")) {
+      //     $other.addClass("bk-bookdefault");
+      //   }
 
-        if ($book.data("opened")) {
-          $this.removeClass("bk-active");
-          $book
-            .data({ opened: false, flip: false })
-            .removeClass("bk-viewinside")
-            .addClass("bk-bookdefault");
-        } else {
-          $this.addClass("bk-active");
-          $book
-            .data({ opened: true, flip: false })
-            .removeClass("bk-viewback bk-bookdefault")
-            .addClass("bk-viewinside");
-          $parent.css("z-index", booksCount);
-          current = 0;
-          $content
-            .removeClass("bk-content-current")
-            .eq(current)
-            .addClass("bk-content-current");
-        }
-      });
+      //   if ($book.data("opened")) {
+      //     $this.removeClass("bk-active");
+      //     $book
+      //       .data({ opened: false, flip: false })
+      //       .removeClass("bk-viewinside")
+      //       .addClass("bk-bookdefault");
+      //   } else {
+      //     $this.addClass("bk-active");
+      //     $book
+      //       .data({ opened: true, flip: false })
+      //       .removeClass("bk-viewback bk-bookdefault")
+      //       .addClass("bk-viewinside");
+      //     $parent.css("z-index", booksCount);
+      //     current = 0;
+      //     $content
+      //       .removeClass("bk-content-current")
+      //       .eq(current)
+      //       .addClass("bk-content-current");
+      //   }
+      // });
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+      // dont think i need this line of code from the bottom because thats for the book indicators
+      ////////////////////////////////////////////////////////////////////////////////////////////////
 
-      if ($content.length > 1) {
-        var $navPrev = $('<span class="bk-page-prev">&lt;</span>'),
-          $navNext = $('<span class="bk-page-next">&gt;</span>');
+      // if ($content.length > 1) {
+      //   var $navPrev = $('<span class="bk-page-prev">&lt;</span>'),
+      //     $navNext = $('<span class="bk-page-next">&gt;</span>');
 
-        // $page.append($("<nav></nav>").append($navPrev, $navNext));
+      //   // $page.append($("<nav></nav>").append($navPrev, $navNext));
 
-        $navPrev.on("click", function () {
-          if (current > 0) {
-            --current;
-            $content
-              .removeClass("bk-content-current")
-              .eq(current)
-              .addClass("bk-content-current");
-          }
-          return false;
-        });
+      //   $navPrev.on("click", function () {
+      //     if (current > 0) {
+      //       --current;
+      //       $content
+      //         .removeClass("bk-content-current")
+      //         .eq(current)
+      //         .addClass("bk-content-current");
+      //     }
+      //     return false;
+      //   });
 
-        $navNext.on("click", function () {
-          if (current < $content.length - 1) {
-            ++current;
-            $content
-              .removeClass("bk-content-current")
-              .eq(current)
-              .addClass("bk-content-current");
-          }
-          return false;
-        });
-      }
+      //   $navNext.on("click", function () {
+      //     if (current < $content.length - 1) {
+      //       ++current;
+      //       $content
+      //         .removeClass("bk-content-current")
+      //         .eq(current)
+      //         .addClass("bk-content-current");
+      //     }
+      //     return false;
+      //   });
+      // }
     });
   }
 
@@ -282,7 +293,8 @@ class Book extends React.Component {
               <p className="mapPName"> {book.author}</p> <br />
               <p className="mapPName"> {book.fiction}</p> <br />
               <p className="mapPName">{book.description}</p> <br /> */}
-              <details className="mapDetails">
+              {/* /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */}
+              {/* <details className="mapDetails">
                 <summary className="mapSummary">Edit this Book</summary>
                 <form id={book._id} onSubmit={this.updateBook}>
                   <label htmlFor="name">Name</label>
@@ -327,20 +339,20 @@ class Book extends React.Component {
                     value="Update Book"
                   />
                 </form>
-              </details>
-              <img src={book.image} alt={book.name} />
+              </details> */}
+              {/* <img src={book.image} alt={book.name} />
               <div className="bk-info">
                 <button className="bk-bookback">Flip</button>
                 <button className="bk-bookview">View inside</button>
-              </div>
+              </div> */}
               {/* delete button  */}
-              <button
+              {/* <button
                 className="deleteButton"
                 value={book._id}
                 onClick={this.deleteBook}
               >
                 DELETE
-              </button>
+              </button> */}
               {this.props.isCheckedOut === false && (
                 <button
                   className="checkOutButton"

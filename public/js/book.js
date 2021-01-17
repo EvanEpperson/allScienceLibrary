@@ -54,9 +54,8 @@ class Book extends React.Component {
     });
   };
 
-
   bookFlip = function init() {
-    var $books = $("#bk-list > li > div.bk-book"),
+      var $books = $("#bk-list > li > div.bk-book"),
       booksCount = $books.length;
     $books.each(function () {
       var $book = $(this),
@@ -66,6 +65,7 @@ class Book extends React.Component {
         $bookview = $parent.find("button.bk-bookview"),
         $content = $page.children("div.bk-content"),
         current = 0;
+      /////////////////flip page function only  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
       $parent.find("button.bk-bookback").on("click", function () {
         $bookview.removeClass("bk-active");
@@ -82,7 +82,7 @@ class Book extends React.Component {
             .addClass("bk-viewback");
         }
       });
-
+      /////////////////view inside function only //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
       $bookview.on("click", function () {
         var $this = $(this);
 
@@ -117,38 +117,8 @@ class Book extends React.Component {
             .addClass("bk-content-current");
         }
       });
-
-      if ($content.length > 1) {
-        var $navPrev = $('<span class="bk-page-prev">&lt;</span>'),
-          $navNext = $('<span class="bk-page-next">&gt;</span>');
-
-        // $page.append($("<nav></nav>").append($navPrev, $navNext));
-
-        $navPrev.on("click", function () {
-          if (current > 0) {
-            --current;
-            $content
-              .removeClass("bk-content-current")
-              .eq(current)
-              .addClass("bk-content-current");
-          }
-          return false;
-        });
-
-        $navNext.on("click", function () {
-          if (current < $content.length - 1) {
-            ++current;
-            $content
-              .removeClass("bk-content-current")
-              .eq(current)
-              .addClass("bk-content-current");
-          }
-          return false;
-        });
-      }
     });
-  }
-
+  };
 
   componentDidMount = () => {
     axios.get("/books").then((response) => {
@@ -229,7 +199,6 @@ class Book extends React.Component {
                         className="inputEditButton"
                         type="submit"
                         value="Update Book"
-                        
                       />
                     </form>
                     <button
@@ -282,7 +251,8 @@ class Book extends React.Component {
               <p className="mapPName"> {book.author}</p> <br />
               <p className="mapPName"> {book.fiction}</p> <br />
               <p className="mapPName">{book.description}</p> <br /> */}
-              <details className="mapDetails">
+              {/* /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */}
+              {/* <details className="mapDetails">
                 <summary className="mapSummary">Edit this Book</summary>
                 <form id={book._id} onSubmit={this.updateBook}>
                   <label htmlFor="name">Name</label>
@@ -327,20 +297,20 @@ class Book extends React.Component {
                     value="Update Book"
                   />
                 </form>
-              </details>
-              <img src={book.image} alt={book.name} />
+              </details> */}
+              {/* <img src={book.image} alt={book.name} />
               <div className="bk-info">
                 <button className="bk-bookback">Flip</button>
                 <button className="bk-bookview">View inside</button>
-              </div>
+              </div> */}
               {/* delete button  */}
-              <button
+              {/* <button
                 className="deleteButton"
                 value={book._id}
                 onClick={this.deleteBook}
               >
                 DELETE
-              </button>
+              </button> */}
               {this.props.isCheckedOut === false && (
                 <button
                   className="checkOutButton"

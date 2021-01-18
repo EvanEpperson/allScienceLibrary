@@ -94,14 +94,16 @@ class App extends React.Component {
           <div className="collapse" id="collapseExample">
             <div className="card card-body create-form-card" >
               <form onSubmit={this.handleSubmit}>
-                <div class="form-floating mb-3">
+                <div className="form-floating mb-3">
                   <label htmlFor="name">Name</label>
                   <input type="text" id="name" className="form-control" onChange={this.handleChange} value={this.state.name} required/>
                   <br />
                 </div>
-                <label htmlFor="author">Author</label>
-                <input type="text" id="author" onChange={this.handleChange} value={this.state.author} required/>
-                <br />
+                <div className="form-floating mb-3">
+                  <label htmlFor="author">Author</label>
+                  <input type="text" id="author" onChange={this.handleChange} value={this.state.author} required/>
+                  <br />
+                </div>
                 <div className="form-floating">
                   <select className="form-select" id="fiction" aria-label="Floating label select " onChange={this.handleChange} value={this.state.fiction} required>
                     <option selected></option>

@@ -130,6 +130,7 @@ class Book extends React.Component {
 
   render = () => {
     return (
+    <div className="main">
       <ul id="bk-list" className="bk-list clearfix">
         {this.state.books.map((book) => {
           return (
@@ -139,7 +140,12 @@ class Book extends React.Component {
                   <div className="bk-cover-back"></div>
                   <div className="bk-cover">
                     {/* works but needs more work in css for it to match with every book  */}
-                    <img src={book.image} alt={book.name} />
+                    <a
+                      href="https://www.barnesandnoble.com/b/nonfiction/_/N-1py2"
+                      target="_blank"
+                    >
+                      <img src={book.image} alt={book.name} />
+                    </a>
                     <h2>
                       <span></span>
                       <span></span>
@@ -233,84 +239,21 @@ class Book extends React.Component {
                 <div className="bk-bottom"></div>
               </div>
               <div className="bk-info">
-                <button className="bk-bookback" onClick={this.bookFlip}>
+                <button
+                  className="bk-bookback"
+                  onClick={this.bookFlip}
+                >
                   Flip
                 </button>
                 <button className="bk-bookview" onClick={this.bookFlip}>
                   View inside
                 </button>
-                <h3>
+                <h3 className="authorName">
                   <span>{book.author}</span>
                   <span>{book.name}</span>
                 </h3>
               </div>
 
-              {/* regular code that i may have to delete later on  */}
-              {/* keeping this down  */}
-              {/* <p className="mapPName"> {book.name}</p> <br />
-              <p className="mapPName"> {book.author}</p> <br />
-              <p className="mapPName"> {book.fiction}</p> <br />
-              <p className="mapPName">{book.description}</p> <br /> */}
-              {/* /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */}
-              {/* <details className="mapDetails">
-                <summary className="mapSummary">Edit this Book</summary>
-                <form id={book._id} onSubmit={this.updateBook}>
-                  <label htmlFor="name">Name</label>
-                  <br />
-                  <input type="text" id="name" onChange={this.testing} />
-                  <br />
-                  <label htmlFor="author">Author</label>
-                  <br />
-                  <input type="text" id="author" onChange={this.handleChange} />
-                  <br />
-                  <label htmlFor="fiction">Fiction Type</label>
-                  <br />
-                  <input
-                    type="text"
-                    id="fiction"
-                    onChange={this.handleChange}
-                  />
-                  <br />
-                  <label htmlFor="image">Image</label>
-                  <br />
-                  <input type="text" id="image" onChange={this.handleChange} />
-                  <br />
-                  <label htmlFor="description">Description</label>
-                  <br />
-                  <input
-                    type="text"
-                    id="description"
-                    onChange={this.handleChange}
-                  />
-                  <br />
-                  <input
-                    type="hidden"
-                    id="isCheckedOut"
-                    onChange={this.handleChange}
-                    value={false}
-                  />
-                  <br />
-                  <br />
-                  <input
-                    className="inputEditButton"
-                    type="submit"
-                    value="Update Book"
-                  />
-                </form>
-              </details> */}
-              {/* <img src={book.image} alt={book.name} />
-              <div className="bk-info">
-                <button className="bk-bookback">Flip</button>
-                <button className="bk-bookview">View inside</button>
-              </div> */}
-              {/* delete button  */}
-              {/* <button
-                className="deleteButton"
-                value={book._id}
-                onClick={this.deleteBook}
-              >
-                DELETE
-              </button> */}
               {this.props.isCheckedOut === false && (
                 <button
                   className="checkOutButton"
@@ -328,11 +271,13 @@ class Book extends React.Component {
                 >
                   Check In This Book
                 </button>
+                
               )}
             </li>
           );
         })}
       </ul>
+    </div>
     );
   };
 }

@@ -1,8 +1,17 @@
-
+body {
+  background:  linear-gradient(
+      rgba(0, 0, 0, 0.45),
+      rgba(0, 0, 0, 0.45)
+    ),
+   url("https://wallpaperaccess.com/full/922661.jpg");
+  background-position: center;
+  background-size: cover;
+}
 header {
   background-size: cover;
   box-shadow: 5px 5px 10px black, 13px 13px 10px indigo;
 }
+
 
 .app-name {
   color:lightgrey;
@@ -26,3 +35,15 @@ textarea {
 
 }
 
+.navbar{
+  background-repeat: no-repeat !important;
+  background-size: cover !important; 
+}
+
+.authorName{
+  color: green !important;
+}
+
+.container{
+  margin: 0px; 
+}

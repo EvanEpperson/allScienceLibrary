@@ -32,12 +32,28 @@ textarea {
 .create-button {
   margin: 20px 0;
   box-shadow: 5px 5px 10px black, 13px 13px 10px aqua;
+}
 
+.inputEditButton {
+  display: inline-block;
+  margin: 8px;
+  box-shadow: 5px 5px 8px black, 13px 13px 8px aqua;
+  position: absolute;
+  background-color: ivory !important;
+}
+
+.deleteButton {
+  display: inline-block;
+  margin: 8px;
+  box-shadow: 5px 5px 8px black, 13px 13px 8px aqua;
+  float: right;
+  position: relative;
+  background-color: ivory !important;
 }
 
 .navbar{
   background-repeat: no-repeat !important;
-  background-size: cover !important; 
+  background-size: cover !important;
 }
 
 .authorName{
@@ -45,5 +61,37 @@ textarea {
 }
 
 .container{
-  margin: 0px; 
+  margin: 0px;
+}
+
+.create-form {
+  background-color: rgb(50, 50, 50);
+  position: absolute;
+  left: 65%;
+  z-index: 3;
+}
+.edit-title {
+  background-color: ivory !important;
+}
+.input-box {
+ background-color: darkgrey;
+ border-radius: 8px;
+}
+
+.input-box-edit {
+ background-color: darkgrey;
+ border-radius: 8px;
+ height: 3.25rem !important;
+ padding: 0 !important;
+ font-size: 1rem;
+ line-height: 1;
+ background-color: ivory !important;
+}
+
+.these {
+  color: lightgrey;
+}
+
+.bk-page {
+  background-color: ivory !important;
 }

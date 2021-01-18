@@ -153,62 +153,49 @@ class Book extends React.Component {
                   </div>
                 </div>
                 {/* inside of the book maybe need to make another discription if we want to keep this feature */}
-                <div className="bk-page">
+                <div className="bk-page edit-title">
                   <div className="bk-content bk-content-current">
                     {/* <details className="mapDetails"> */}
-                    <summary className="mapSummary">Edit this Book</summary>
+                    <summary className="edit-title">Edit this Book</summary>
                     <form id={book._id} onSubmit={this.updateBook}>
+                    <div className="form-floating">
+                      <input type="text" id="name" className="input-box-edit form-control" onChange={this.handleChange} value={this.state.name} placeholder="Name" required/>
                       <label htmlFor="name">Name</label>
-
-                      <input type="text" id="name" onChange={this.testing} />
-
+                    </div>
+                    <div className="form-floating">
+                      <input type="text" id="author" className="form-control input-box-edit" onChange={this.handleChange} value={this.state.author} placeholder="Author" required/>
                       <label htmlFor="author">Author</label>
-
-                      <input
-                        type="text"
-                        id="author"
-                        onChange={this.handleChange}
-                      />
-
+                    </div>
+                    <div className="form-floating">
+                      <select className="form-select input-box-edit" id="fiction" aria-label="Floating label select " onChange={this.handleChange} value={this.state.fiction} required>
+                        <option selected></option>
+                        <option value="Fiction">Fiction</option>
+                        <option value="Non-Fiction">Non-Fiction</option>
+                      </select>
                       <label htmlFor="fiction">Fiction Type</label>
-
-                      <input
-                        type="text"
-                        id="fiction"
-                        onChange={this.handleChange}
-                      />
-
+                    </div>
+                    <div className="form-floating">
+                      <input type="text" id="image" className="form-control input-box-edit" onChange={this.handleChange} value={this.state.image} placeholder="Image"/>
                       <label htmlFor="image">Image</label>
-
-                      <input
-                        type="text"
-                        id="image"
-                        onChange={this.handleChange}
-                      />
-
+                    </div>
+                    <div className="form-floating">
+                      <input id="description" className="form-control input-box-edit" onChange={this.handleChange} value={this.state.description} placeholder="Description"/>
                       <label htmlFor="description">Description</label>
-
-                      <input
-                        type="text"
-                        id="description"
-                        onChange={this.handleChange}
-                      />
-
+                    </div>
                       <input
                         type="hidden"
                         id="isCheckedOut"
                         onChange={this.handleChange}
                         value={false}
                       />
-
                       <input
-                        className="inputEditButton"
+                        className="inputEditButton btn btn-outline-info"
                         type="submit"
                         value="Update Book"
                       />
                     </form>
                     <button
-                      className="deleteButton"
+                      className="deleteButton btn btn-outline-info"
                       value={book._id}
                       onClick={this.deleteBook}
                     >
@@ -271,7 +258,7 @@ class Book extends React.Component {
                 >
                   Check In This Book
                 </button>
-                
+
               )}
             </li>
           );

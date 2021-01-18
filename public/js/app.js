@@ -27,7 +27,7 @@ class App extends React.Component {
         fiction: '',
         image: '',
         description:'',
-        isCheckedOut: false,
+        isCheckedOut: false
       })
     )
   }
@@ -67,7 +67,7 @@ class App extends React.Component {
           fiction: '',
           image: '',
           description:'',
-          isCheckedOut: false,
+          isCheckedOut: false
         })
       })
   }
@@ -93,15 +93,15 @@ class App extends React.Component {
             <div className="card card-body create-form-card create-form" >
               <form onSubmit={this.handleSubmit}>
                 <div className="form-floating mb-3">
+                  <input type="text" id="name" className="input-box form-control" onChange={this.handleChange} value={this.state.name} placeholder="Name" required/>
                   <label htmlFor="name">Name</label>
-                  <input type="text" id="name" className="input-box form-control" onChange={this.handleChange} value={this.state.name} required/>
                 </div>
-                <br />
+                {/*<br />*/}
                 <div className="form-floating mb-3">
+                  <input type="text" id="author" className="form-control input-box" onChange={this.handleChange} value={this.state.author} placeholder="Author" required/>
                   <label htmlFor="author">Author</label>
-                  <input type="text" id="author" className="form-control input-box" onChange={this.handleChange} value={this.state.author} required/>
                 </div>
-                <br />
+                {/*<br />*/}
                 <div className="form-floating">
                   <select className="form-select input-box" id="fiction" aria-label="Floating label select " onChange={this.handleChange} value={this.state.fiction} required>
                     <option selected></option>
@@ -112,19 +112,18 @@ class App extends React.Component {
                 </div>
                 <br />
                 <div className="form-floating mb-3">
+                  <input type="text" id="image" className="form-control input-box" onChange={this.handleChange} value={this.state.image} placeholder="Image"/>
                   <label htmlFor="image">Image</label>
-                  <input type="text" id="image" className="form-control input-box" onChange={this.handleChange} value={this.state.image}/>
                 </div>
-                <br />
+                {/*<br />*/}
                 <div className="form-floating mb-3">
+                  <input id="description" className="form-control input-box" onChange={this.handleChange} value={this.state.description} placeholder="Description"/>
                   <label htmlFor="description">Description</label>
-                  <textarea id="description" className="form-control input-box" onChange={this.handleChange} value={this.state.description}>
-                  </textarea>
                 </div>
-                <br />
+                {/*<br />*/}
                 <input type="hidden" id="isCheckedOut" onChange={this.handleChange} value={false}/>
-                <br />
-                <input className="btn btn-outline-info create-button" type="submit" value="Create Book" />
+                {/*<br />*/}
+                <input className="btn btn-outline-info create-button" type="submit" value="Create Book" data-bs-toggle="collapse"/>
               </form>
             </div>
           </div>

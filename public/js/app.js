@@ -32,9 +32,11 @@ class App extends React.Component {
   };
 
   checkOutBook = (event) => {
-    this.setState({
-      isCheckedOut: true,
-    });
+    console.log(event.target.value);
+    console.log(this.state.books);
+    const oneArrayItem = this.state.books.find(element => element._id === event.target.value)
+    console.log(oneArrayItem);
+
   };
 
   checkInBook = (event) => {

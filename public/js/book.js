@@ -212,7 +212,6 @@
 //                     <p>{book.description}</p>
 //                   </div>
 //                 </div>
-
 //                 {/* inside of the book */}
 //                 <div className="bk-back">
 //                   <p>{book.description}</p>
@@ -242,6 +241,7 @@
 //                   <span>{book.name}</span>
 //                 </h3>
 //               </div>
+
 
 //               {this.state.isCheckedOut === false && (
 //                 <button

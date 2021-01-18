@@ -241,7 +241,7 @@ class Book extends React.Component {
                 </h3>
               </div>
 
-              {this.props.isCheckedOut === false && (
+              {this.state.isCheckedOut === false && (
                 <button
                   className="checkOutButton"
                   value={book._id}
@@ -250,7 +250,7 @@ class Book extends React.Component {
                   Check Out This Book
                 </button>
               )}
-              {this.props.isCheckedOut === true && (
+              {this.state.isCheckedOut === true && (
                 <button
                   className="checkInButton"
                   value={book._id}

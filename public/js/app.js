@@ -34,15 +34,33 @@ class App extends React.Component {
   checkOutBook = (event) => {
     console.log(event.target.value);
     console.log(this.state.books);
-    const oneArrayItem = this.state.books.find(element => element._id === event.target.value)
+    let oneArrayItem = this.state.books.find(element => element._id === event.target.value)
     console.log(oneArrayItem);
+    const itemKeys = {...oneArrayItem};
+    console.log(itemKeys);
+    itemKeys.isCheckedOut = true;
+    oneArrayItem = itemKeys;
+    this.setState({
+      oneArrayItem
+    });
+
 
   };
 
   checkInBook = (event) => {
+    console.log(event.target.value);
+    console.log(this.state.books);
+    let oneArrayItem = this.state.books.find(element => element._id === event.target.value)
+    console.log(oneArrayItem);
+    const itemKeys = {...oneArrayItem};
+    console.log(itemKeys);
+    itemKeys.isCheckedOut = false;
+    oneArrayItem = itemKeys;
     this.setState({
-      isCheckedOut: false,
+      oneArrayItem
     });
+
+
   };
 
   deleteBook = (event) => {

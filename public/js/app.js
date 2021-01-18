@@ -31,19 +31,6 @@ class App extends React.Component {
     );
   };
 
-  checkOutBook = (event) => {
-    console.log(event.target.value);
-    console.log(this.state.books);
-    const oneArrayItem = this.state.books.find(element => element._id === event.target.value)
-    console.log(oneArrayItem);
-
-  };
-
-  checkInBook = (event) => {
-    this.setState({
-      isCheckedOut: false,
-    });
-  };
 
   deleteBook = (event) => {
     axios.delete("/books/" + event.target.value).then((response) => {
@@ -69,6 +56,8 @@ class App extends React.Component {
     });
   };
 
+
+  // look at Readme for more info on this function along with the book css 
   bookFlip = function init() {
     var $books = $("#bk-list > li > div.bk-book"),
       booksCount = $books.length;
@@ -172,7 +161,7 @@ class App extends React.Component {
                   />
                   <label htmlFor="name">Name</label>
                 </div>
-                {/*<br />*/}
+                
                 <div className="form-floating mb-3">
                   <input
                     type="text"
@@ -185,7 +174,7 @@ class App extends React.Component {
                   />
                   <label htmlFor="author">Author</label>
                 </div>
-                {/*<br />*/}
+               
                 <div className="form-floating">
                   <select
                     className="form-select input-box"
@@ -213,7 +202,7 @@ class App extends React.Component {
                   />
                   <label htmlFor="image">Image</label>
                 </div>
-                {/*<br />*/}
+                
                 <div className="form-floating mb-3">
                   <input
                     id="description"
@@ -224,14 +213,14 @@ class App extends React.Component {
                   />
                   <label htmlFor="description">Description</label>
                 </div>
-                {/*<br />*/}
+                
                 <input
                   type="hidden"
                   id="isCheckedOut"
                   onChange={this.handleChange}
                   value={false}
                 />
-                {/*<br />*/}
+                
                 <input
                   className="btn btn-outline-info create-button"
                   type="submit"
@@ -243,7 +232,7 @@ class App extends React.Component {
           </div>
         </div>
         <h2 className="these">These are the Books in the Library:</h2>
-        {/* <Book name={this.state.name} author={this.state.author} fiction={this.state.fiction} image={this.state.image} description={this.state.description} books={this.state.books}></Book> */}
+
         <div className="main">
           <ul id="bk-list" className="bk-list clearfix">
             {this.state.books.map((book) => {
@@ -379,7 +368,7 @@ class App extends React.Component {
                     <button className="bk-bookback" onClick={this.bookFlip}>
                       Flip
                     </button>
-                    <button className="bk-bookview" onClick={this.bookFlip}>
+                    <button id="bookView"  className="bk-bookview" onClick={this.bookFlip}>
                       View inside
                     </button>
                     <h3 className="authorName">
@@ -388,24 +377,8 @@ class App extends React.Component {
                     </h3>
                   </div>
 
-                  {this.state.isCheckedOut === false && (
-                    <button
-                      className="checkOutButton"
-                      value={book._id}
-                      onClick={this.checkOutBook}
-                    >
-                      Check Out This Book
-                    </button>
-                  )}
-                  {this.state.isCheckedOut === true && (
-                    <button
-                      className="checkInButton"
-                      value={book._id}
-                      onClick={this.checkInBook}
-                    >
-                      Check In This Book
-                    </button>
-                  )}
+                 
+                  
                 </li>
               );
             })}

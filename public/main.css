@@ -14,7 +14,7 @@ header {
 
 
 .app-name {
-  color:lightgrey;
+  color: ivory;
   font-size: 3.5em;
 }
 
@@ -56,8 +56,8 @@ textarea {
   background-size: cover !important;
 }
 
-.authorName{
-  color: green !important;
+.authorName span {
+  color: ivory !important;
 }
 
 .container{
@@ -89,7 +89,7 @@ textarea {
 }
 
 .these {
-  color: lightgrey;
+  color: ivory;
 }
 
 .bk-page {

@@ -32,12 +32,11 @@ textarea {
 .create-button {
   margin: 20px 0;
   box-shadow: 5px 5px 10px black, 13px 13px 10px aqua;
-
 }
 
 .navbar{
   background-repeat: no-repeat !important;
-  background-size: cover !important; 
+  background-size: cover !important;
 }
 
 .authorName{
@@ -45,5 +44,20 @@ textarea {
 }
 
 .container{
-  margin: 0px; 
+  margin: 0px;
+}
+
+.create-form {
+  background-color: rgb(50, 50, 50);
+  position: absolute;
+  left: 65%;
+  z-index: 2;
+}
+
+.input-box {
+ background-color: darkgrey;
+}
+
+.these {
+  color: lightgrey;
 }
